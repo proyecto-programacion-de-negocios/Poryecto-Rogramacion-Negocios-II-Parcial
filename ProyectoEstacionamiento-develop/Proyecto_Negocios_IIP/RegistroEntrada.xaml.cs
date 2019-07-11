@@ -26,7 +26,7 @@ namespace Proyecto_Negocios_IIP
 
         private void LbTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
     }
 }

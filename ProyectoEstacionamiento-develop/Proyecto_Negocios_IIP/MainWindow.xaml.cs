@@ -41,12 +41,14 @@ namespace Proyecto_Negocios_IIP
 
         private void btnTipoAutomovil_Click(object sender, RoutedEventArgs e)
         {
-
+            /*RegistroSalida registroSalida = new RegistroSalida();
+            registroSalida.Show();
+            this.Close();*/
         }
 
         private void btnRegistroAutomovil_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
     }
 }
