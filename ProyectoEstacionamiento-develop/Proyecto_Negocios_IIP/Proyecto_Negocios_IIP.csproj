@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClaseConexion.cs" />
+    <Compile Include="EstacionamientoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RegistroEntrada.xaml.cs">
       <DependentUpon>RegistroEntrada.xaml</DependentUpon>
     </Compile>
@@ -100,6 +106,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="EstacionamientoDataSet.xsc">
+      <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EstacionamientoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EstacionamientoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EstacionamientoDataSet.xss">
+      <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
