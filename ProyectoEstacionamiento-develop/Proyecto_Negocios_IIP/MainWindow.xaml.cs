@@ -15,14 +15,22 @@ using System.Windows.Shapes;
 
 namespace Proyecto_Negocios_IIP
 {
+    // Agregando los namespaces necesarios para SQL Server
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using System.Data;
+
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Variable miembro
+        SqlConnection sqlconnection;
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void btnHoraEntrada_Click(object sender, RoutedEventArgs e)
@@ -50,5 +58,6 @@ namespace Proyecto_Negocios_IIP
         {
            
         }
+
     }
 }
