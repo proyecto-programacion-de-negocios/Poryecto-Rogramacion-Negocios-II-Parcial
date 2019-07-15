@@ -35,7 +35,7 @@ namespace Proyecto_Negocios_IIP
             this.lbAutomoviles.ItemsSource = MostrarEntrada();
         }
 
-        private void MostrarVehiculos()
+        private void MostrarAutomoviles()
         {
             try
             {
@@ -70,12 +70,12 @@ namespace Proyecto_Negocios_IIP
             {
                 RegistroAutomovil registroAutomovil = new RegistroAutomovil();
                 con.Open();
-                string query = "INSERT INTO Estacionamiento.Vehiculo VALUES (@placa,@tipovehiculo)";
+                string query = "INSERT INTO Est.Automovil VALUES (@placa,@tipoAutomovil)";
                 SqlCommand comando = new SqlCommand(query, con);
                 comando.Parameters.AddWithValue("@placa", registroAutomovil.Placa);
-                comando.Parameters.AddWithValue("@tipovehiculo", registroAutomovil.TipoAutomovil);
+                comando.Parameters.AddWithValue("@tipoAutomovil", registroAutomovil.TipoAutomovil);
                 comando.ExecuteNonQuery();
-                MessageBox.Show("El vehiculo se ha agregado");
+                MessageBox.Show("El Automovil se ha agregado");
 
             }
             catch (Exception ex)

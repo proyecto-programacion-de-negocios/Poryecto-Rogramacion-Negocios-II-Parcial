@@ -44,8 +44,38 @@
             <Label Content="Hora" Grid.Column="0" Grid.Row="2" FontSize="25" Margin="20,10,295,10" HorizontalContentAlignment="Left"/>
             <Label FontWeight="Bold" HorizontalAlignment="Center" Content="Automovil" Grid.Column="0" Grid.Row="3" FontSize="30"  HorizontalContentAlignment="Left" RenderTransformOrigin="0.366,0.49" Margin="115,0" Width="158"/>
             <Label FontWeight="Bold" HorizontalAlignment="Center" Content="Tipo" Grid.Column="1" Grid.Row="3" FontSize="30"  HorizontalContentAlignment="Left" Margin="224,0,215,0" RenderTransformOrigin="0.622,0.46" Width="73"/>
-            <ListBox Grid.Row="4" SelectionChanged="LbTipo_SelectionChanged" Margin="72,20,55,58" Background="White"/>
-            <ListBox Grid.Row="4" SelectionChanged="LbTipo_SelectionChanged" Margin="91,20,160,58" Grid.Column="1" Background="White"/>
+            <ListBox Name="lbAutomovil" Grid.Column="0" Grid.Row="4" Grid.RowSpan="4" Margin="72,20,55,58" HorizontalContentAlignment="Stretch" Background="White">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Placa}"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding TipoAutomovil}"></TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding HoraEntrada}"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <ListBox Name="lbTipo" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Margin="91,20,160,58" HorizontalContentAlignment="Stretch" Background="White">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Placa}"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding TipoAutomovil}"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
             <TextBox Name="txtPlaca" Grid.Column="0"  Grid.Row="0" FontSize="18" Margin="152,10,0,0" Height="40" VerticalAlignment="Top" BorderBrush="Black" Background="White"/>
             <TextBox x:Name="txtFecha" Grid.Column="0"  Grid.Row="1" FontSize="18" Margin="152,10,0,10" BorderBrush="Black" Background="White"/>
             <TextBox x:Name="txtHora" Grid.Column="0"  Grid.Row="2" FontSize="18" Margin="152,10,0,0" Height="40" VerticalAlignment="Top" BorderBrush="Black" Background="White"/>

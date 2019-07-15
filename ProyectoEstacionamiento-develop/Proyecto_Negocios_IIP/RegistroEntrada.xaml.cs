@@ -23,15 +23,16 @@ namespace Proyecto_Negocios_IIP
     /// </summary>
     public partial class RegistroEntrada : Window
     {
+        ClaseEstacionamiento estacionamiento = new ClaseEstacionamiento();
+        SqlConnection con = new SqlConnection("Data Source = DESKTOP-JDLKDN3\\SQLEXPRESS; Initial Catalog = Estacionamiento; Integrated Security = True");
         public RegistroEntrada()
         {
             InitializeComponent();
-        }
+            RegistroAutomovil registroAutomovil = new RegistroAutomovil();
 
-        private void LbTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            this.lbAutomovil.ItemsSource = MostrarEntrada();
         }
+        
         MainWindow menu = new MainWindow();
         private void BtnVolver_Click(object sender, RoutedEventArgs e)
         {
@@ -49,9 +50,82 @@ namespace Proyecto_Negocios_IIP
             {
                 App.Current.Shutdown();
             }
-
-
         }
 
+        private void MostrarAutomovil()
+        {
+            try
+            {
+                // El query ha realizar en la BD
+                string query = "SELECT * FROM Est.Automovil";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, con);
+
+                using (sqlDataAdapter)
+                {
+                    DataTable tablaAutomovil = new DataTable();
+
+                    sqlDataAdapter.Fill(tablaAutomovil);
+
+                    lbAutomovil.DisplayMemberPath = "Placa";
+                    lbAutomovil.DisplayMemberPath = "Tipo";
+                    lbAutomovil.SelectedValuePath = "IdAutomovil";
+
+                    lbAutomovil.ItemsSource = tablaAutomovil.DefaultView;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void AgregarAutomovil()
+        {
+
+            try
+            {
+                RegistroAutomovil registroAutomovil = new RegistroAutomovil();
+                con.Open();
+                string query = "INSERT INTO Est.Automovil VALUES (@placa,@tipoAutomovil)";
+                SqlCommand comando = new SqlCommand(query, con);
+                comando.Parameters.AddWithValue("@placa", registroAutomovil.Placa);
+                comando.Parameters.AddWithValue("@tipoAutomovil", registroAutomovil.TipoAutomovil);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("El Automovil se ha agregado");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<RegistroAutomovil> MostrarEntrada()
+        {
+            con.Open();
+            String query = @"SELECT Placa,TipoAutomovil,HoraEntrada FROM Est.Automovil  INNER JOIN Est.Registro ge
+                                ON Placa = ge.PlacaAutomovil WHERE Placa = Placa";
+            SqlCommand comando = new SqlCommand(query, con);
+            List<RegistroAutomovil> Lista = new List<RegistroAutomovil>();
+            SqlDataReader reder = comando.ExecuteReader();
+
+            while (reder.Read())
+            {
+                RegistroAutomovil registroAutomovil = new RegistroAutomovil();
+                registroAutomovil.Placa = reder.GetString(0);
+                registroAutomovil.TipoAutomovil = reder.GetInt32(1);
+                registroAutomovil.HoraEntrada = reder.GetDateTime(2);
+                //lbVehiculosDentroEstacionamiento.SelectedValuePath = "Placa";
+                Lista.Add(registroAutomovil);
+            }
+            reder.Close();
+            con.Close();
+            return Lista;
+        }
     }
 }
