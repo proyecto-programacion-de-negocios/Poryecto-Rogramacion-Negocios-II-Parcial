@@ -1,0 +1,70 @@
+﻿<Window x:Class="Proyecto_Negocios_IIP.MainWindow"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        FontFamily="pack://aplication:,,,/MaterialDesingThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Negocios_IIP"
+        mc:Ignorable="d"      
+        
+        
+        
+        
+      
+    Title="ESTACIONAMIENTO LOS ANGELES" Height="550" Width="800">
+    <Grid Background="#80BAD9" Margin="0">
+        <Grid Height="60" VerticalAlignment="Top" Background="#3EA2C0">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="Black"/>
+            </Grid.Effect>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,32">
+                <Button x:Name="BtnSalir" Content="CERRAR" Click="BtnSalir_Click" Width="87" Background="red" FontWeight="Bold" Margin="0,0,0,-4"/>
+            </StackPanel>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold">Menu</TextBlock>
+        </Grid>
+        <Grid  VerticalAlignment="Center" Height="388" Margin="0,89,0,42">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="396"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label FontWeight="Black" Content="Opciones" Grid.Column="0" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" />
+            <Label FontWeight="Black" Content="Listado de Automoviles" Grid.Column="1" Grid.Row="0" FontSize="20" HorizontalAlignment="Center"/>
+            <ListBox Name="lbAutomoviles" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Margin="32,5,38,-5" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Placa}"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding TipoAuomovil}"></TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding HoraEntrada}"></TextBlock>
+                            <TextBlock Grid.Column="3" Text="{Binding HoraSalida}"></TextBlock>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button BorderThickness="4"  BorderBrush="#A3E8A5" Background="#92E194"  Content="Hora de entrada automóvil" Grid.Column="0" Grid.Row="1" Click="btnHoraEntrada_Click" FontSize="18" Margin="68,10,54,10" />
+            <Button BorderThickness="4" BorderBrush="#A3E8A5" Background="#92E194" Content="Hora De Salida Automóvil" Grid.Column="0" Grid.Row="2" Click="btnHoraSalida_Click" FontSize="18" Margin="68,10,54,10"/>
+            <Button BorderThickness="4" BorderBrush="#A3E8A5" Background="#92E194" Content="Tipo De Automóvil" Grid.Column="0" Grid.Row="3" Click="btnTipoAutomovil_Click" FontSize="18" Margin="68,10,54,10"/>
+            <Button BorderThickness="4" BorderBrush="#A3E8A5" Background="#92E194" Content="Historial De Estacionamiento" Grid.Column="0" Grid.Row="4" Click="btnRegistroAutomovil_Click" FontSize="18" Margin="68,10,54,10"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,35 @@
+﻿<Window x:Class="Proyecto_Negocios_IIP.TipoDeAutomovil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Negocios_IIP"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="TipoDeAutomovil" Height="450" Width="800">
+    <Grid Background="#80BAD9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Label Content="Listado de Automoviles" Grid.Column="0" Grid.Row="0"/>
+        <Label Content="Listado de Automoviles en Estacionamiento" Grid.Column="1" Grid.Row="0"/>
+        <Label Content="Listado de Tipo De Automoviles" Grid.Column="2" Grid.Row="0"/>
+        <ListBox Name="lbAutomoviles" Grid.Column="0" Grid.Row="1" Margin="5,8,5,2" SelectionChanged="LbAutomoviles_SelectionChanged" Background="White"/>
+        <ListBox Name="lbAutomovilesEstacionamiento" Grid.Column="1" Grid.Row="1" Margin="5" Background="White"/>
+        <ListBox Name="lbTipoAutomoviles" Grid.Column="2" Grid.Row="1" Margin="5" Background="White"/>
+        <Button Name="btnAgregarAutomoviles" Content="Agregar Automoviles" Grid.Column="0" Grid.Row="2" Click="BtnAgregarAutomoviles_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
+        <Button Name="btnActualizarlistaautomovil" Content="Actualizar Lista Automovil" Grid.Column="1" Grid.Row="2" Click="BtnActualizarlistaautomovil_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
+        <Button Name="btnEliminarAUtomovilEstacionamiento" Content="Eliminar Automovil" Grid.Column="2" Grid.Row="2" Click="BtnEliminarAUtomovilEstacionamiento_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
+        <TextBox Name="txtInformacion" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" FontSize="18" Background="White"/>
+        <Button Name="btnVolver" Content="Volver Anterior" Grid.Column="3" Grid.Row="3" Click="BtnVolver_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
+
+    </Grid>
+</Window>
