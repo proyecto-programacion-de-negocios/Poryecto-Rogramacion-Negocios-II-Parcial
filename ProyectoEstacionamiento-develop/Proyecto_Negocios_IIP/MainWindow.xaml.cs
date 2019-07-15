@@ -46,7 +46,7 @@ namespace Proyecto_Negocios_IIP
 
                 using (sqlDataAdapter)
                 {
-                    DataTable tablaZoologico = new DataTable();
+                    DataTable tablaAutomovil = new DataTable();
 
                     //sqlDataAdapter.Fill(tablaRegistro);
 

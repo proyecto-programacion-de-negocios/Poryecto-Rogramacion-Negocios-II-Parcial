@@ -60,14 +60,7 @@ namespace Proyecto_Negocios_IIP
 
 
         }
-        //private void BtnSalir_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    if (MessageBox.Show("Realmente desea salir?", "Consulta", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-        //    {
-        //        App.Current.Shutdown();
-        //    }
-        //}
+        
 
     }
 }
