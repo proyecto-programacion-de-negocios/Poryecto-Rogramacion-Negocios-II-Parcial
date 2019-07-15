@@ -23,7 +23,7 @@
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="Black"/>
             </Grid.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,32">
-                <Button x:Name="BtnSalir" Content="CERRAR" Click="BtnSalir_Click" Width="47" Background="red" FontWeight="Bold"/>
+                <Button x:Name="BtnSalir" Content="CERRAR" Click="BtnSalir_Click" Width="87" Background="red" FontWeight="Bold" Margin="0,0,0,-4"/>
             </StackPanel>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold">Menu</TextBlock>
         </Grid>
@@ -55,6 +55,7 @@
                             <TextBlock Grid.Column="1" Text="{Binding TipoAuomovil}"></TextBlock>
                             <TextBlock Grid.Column="2" Text="{Binding HoraEntrada}"></TextBlock>
                             <TextBlock Grid.Column="3" Text="{Binding HoraSalida}"></TextBlock>
+
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

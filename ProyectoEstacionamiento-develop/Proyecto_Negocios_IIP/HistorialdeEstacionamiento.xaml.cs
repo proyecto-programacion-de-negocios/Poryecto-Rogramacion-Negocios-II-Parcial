@@ -24,10 +24,28 @@ namespace Proyecto_Negocios_IIP
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnHistorial_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        MainWindow menu = new MainWindow();
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Usted esta volviendo");
+
+            menu.Show();
+            this.Close();
+
+
+        }
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (MessageBox.Show("Realmente desea salir?", "Consulta", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                App.Current.Shutdown();
+            }
+        }
     }
 }

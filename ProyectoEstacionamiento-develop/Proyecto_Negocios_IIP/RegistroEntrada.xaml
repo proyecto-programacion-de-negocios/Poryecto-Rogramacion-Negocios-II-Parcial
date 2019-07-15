@@ -16,11 +16,11 @@
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="Black"/>
             </Grid.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,32">
-                <Button x:Name="BtnSalir" Content="Salir" Click="BtnSalir_Click" Width="57" Margin="0,1,0,0" Background="red" FontWeight="Bold"/>
+                <Button x:Name="BtnSalir" Content="Salir" Click="BtnSalir_Click" Width="67" Margin="0,1,0,0" Background="red" FontWeight="Bold" Height="Auto"/>
             </StackPanel>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold">Entrada</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="BtnVolver" Content="Volver" Click="BtnVolver_Click" Width="57" Margin="0,33,0,0" Background="Green" FontWeight="Bold"/>
+                <Button x:Name="BtnVolver" Content="Volver" Click="BtnVolver_Click" Width="67" Margin="0,33,0,0" Background="Green" FontWeight="Bold" Height="Auto"/>
             </StackPanel>
             <DatePicker x:Name="fecha" HorizontalAlignment="Left" Margin="10,24,0,0" Width="146" FontSize="18" Background="White"/>
 
@@ -60,7 +60,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            
+
             <ListBox Name="lbTipo" Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Margin="91,20,160,58" HorizontalContentAlignment="Stretch" Background="White">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

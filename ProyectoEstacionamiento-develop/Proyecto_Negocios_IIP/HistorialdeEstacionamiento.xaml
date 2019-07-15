@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Negocios_IIP"
         mc:Ignorable="d"
-        Title="HistorialdeEstacionamiento" Height="450" Width="800">
-    <Grid>
+        Title="HistorialdeEstacionamiento" Height="450" Width="600">
+
+    <Grid Background="#80BAD9">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
 
@@ -16,11 +17,17 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
-            
+
 
         </Grid.RowDefinitions>
-        <Label Content="Listado de Automoviles En Estacionamiento" Grid.Column="0" Grid.Row="0"/>
-        <ListBox Name="lbAutomoviles" Grid.Row="1" Margin="32,5,38,0"/>
-        <Button BorderThickness="4"  BorderBrush="#A3E8A5" Background="#92E194"  Content="Historial Automovil" Grid.Column="0" Grid.Row="3" FontSize="18" Margin="68,10,54,10" />
+        <Label Content="Listado de Automoviles En Estacionamiento" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center"/>
+        <ListBox Name="lbAutomoviles" Grid.Row="1" Margin="180,10,180,10" Background="White"/>
+        <Button BorderThickness="4"  BorderBrush="#A3E8A5" Background="#92E194"  Content="Historial Automovil" Grid.Column="0" Grid.Row="2" FontSize="18" Margin="180,10,180,8" Click="BtnHistorial_Click"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,32">
+            <Button x:Name="BtnSalir" Content="Salir" Click="BtnSalir_Click" Width="67" Margin="0,1,0,0" Background="red" FontWeight="Bold" Height="27" VerticalAlignment="Top"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BtnVolver" Content="Volver" Click="BtnVolver_Click" Width="67" Margin="0,33,0,0" Background="Green" FontWeight="Bold" Height="Auto"/>
+        </StackPanel>
     </Grid>
 </Window>
