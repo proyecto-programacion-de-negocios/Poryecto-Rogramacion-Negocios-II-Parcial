@@ -127,5 +127,81 @@ namespace Proyecto_Negocios_IIP
             con.Close();
             return Lista;
         }
+
+        private void MostrarTipoAutomovil()
+        {
+            try
+            {
+                // El query ha realizar en la BD
+                string query = "SELECT * FROM Est.Tipo";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, con);
+
+                using (sqlDataAdapter)
+                {
+                    DataTable tablaTipo = new DataTable();
+
+                    sqlDataAdapter.Fill(tablaTipo);
+
+                    lbTipo.DisplayMemberPath = "NombreTipo";
+                    lbTipo.SelectedValuePath = "IdTipo";
+
+                    lbTipo.ItemsSource = tablaTipo.DefaultView;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void AgregarTipo()
+        {
+
+            try
+            {
+                RegistroAutomovil registroAutomovil = new RegistroAutomovil();
+                con.Open();
+                string query = "INSERT INTO Est.Tipo VALUES (@NombreTipo)";
+                SqlCommand comando = new SqlCommand(query, con);
+                comando.Parameters.AddWithValue("@IdTipo", registroAutomovil.IdTipo);
+                comando.Parameters.AddWithValue("@NombreTipo", registroAutomovil.NombreTipo);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("El Tipo se ha agregado");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<RegistroAutomovil> MostrarTipo()
+        {
+            con.Open();
+            String query = @"SELECT IdTipo,NombreTipo FROM Est.Tipo  INNER JOIN Est.Tipo ge
+                                ON IdTipo = ge.NombreTipo WHERE IdTipo = NombreTipo";
+            SqlCommand comando = new SqlCommand(query, con);
+            List<RegistroAutomovil> Lista = new List<RegistroAutomovil>();
+            SqlDataReader reder = comando.ExecuteReader();
+
+            while (reder.Read())
+            {
+                RegistroAutomovil registroAutomovil = new RegistroAutomovil();
+                registroAutomovil.IdTipo = reder.GetString(0);
+                registroAutomovil.NombreTipo = reder.GetString(1);
+               // registroAutomovil.HoraEntrada = reder.GetDateTime(2);
+                //lbVehiculosDentroEstacionamiento.SelectedValuePath = "Placa";
+                Lista.Add(registroAutomovil);
+            }
+            reder.Close();
+            con.Close();
+            return Lista;
+        }
+
     }
 }
