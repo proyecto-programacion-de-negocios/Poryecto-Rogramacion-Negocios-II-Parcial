@@ -15,7 +15,7 @@ namespace Proyecto_Negocios_IIP
         private string placa;
         private string tipoAutomovil;
         private decimal monto;
-        SqlConnection cn = new SqlConnection("Data Source = EstacionamientoConnectionString; Initial Catalog = Proyecto_Negocios_IIP; Integrated Security = True");
+        SqlConnection con = new SqlConnection("Data Source = DESKTOP-JDLKDN3\\SQLEXPRESS; Initial Catalog = Estacionamiento; Integrate Security = True");
         public ClaseEstacionamiento()
         {
             placa = "AñadidaPorDefecto";
@@ -47,13 +47,13 @@ namespace Proyecto_Negocios_IIP
         //verifica si la placa ya existe o se debe insertar la placa del automovil
         public Boolean Verificar()
         {
-            cn.Open();
+            con.Open();
             string query = "SELECT COUNT(*) FROM Est.Automovil WHERE Placa=@placa";
             SqlCommand comando = new SqlCommand(query, cn);
             comando.Parameters.AddWithValue("@placa", Placa);
 
             int cantidad = Convert.ToInt32(comando.ExecuteScalar());
-            cn.Close();
+            con.Close();
             if (cantidad == 0)
             {
                 return false;
@@ -68,13 +68,13 @@ namespace Proyecto_Negocios_IIP
         //Verificar si el vehiculo es igual al que se inserto con su placa
         public Boolean VerificarAutomovil()
         {
-            cn.Open();
+            con.Open();
             string query = "SELECT COUNT(*) FROM Est.Automovil WHERE Placa=@placa AND Tipo=@IdPlaca";
             SqlCommand comando = new SqlCommand(query, cn);
             comando.Parameters.AddWithValue("@placa", Placa);
             comando.Parameters.AddWithValue("@IdPlaca", TipoAutomovil);
             int cantidad = Convert.ToInt32(comando.ExecuteScalar());
-            cn.Close();
+            con.Close();
             if (cantidad == 0)
             {
                 return false;
@@ -94,9 +94,9 @@ namespace Proyecto_Negocios_IIP
             {
                 try
                 {
-                    cn.Open();
+                    con.Open();
                     string query = "INSERT INTO Est.Automovil VALUES (@placa,@tipoAutomovil)";
-                    SqlCommand comando = new SqlCommand(query, cn);
+                    SqlCommand comando = new SqlCommand(query, con);
 
                     comando.Parameters.AddWithValue("@placa", Placa);
 
@@ -113,7 +113,7 @@ namespace Proyecto_Negocios_IIP
                 }
                 finally
                 {
-                    cn.Close();
+                    con.Close();
                 }
             }
             //Funcion para ver si el Automovil esta dentro de el estacionamiento
@@ -121,13 +121,13 @@ namespace Proyecto_Negocios_IIP
             {
                 try
                 {
-                    cn.Open();
+                    con.Open();
                     string query = "INSERT INTO Est.Mostrar VALUES (GETDATE(),GEtDATE(),@placa)";
-                    SqlCommand comando = new SqlCommand(query, cn);
+                    SqlCommand comando = new SqlCommand(query, con);
                     comando.Parameters.AddWithValue("@placa", Placa);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("A INGRESADO CORRECTAMENTE");
-                    cn.Close();
+                    con.Close();
                 }
                 catch (Exception)
                 {
@@ -146,12 +146,12 @@ namespace Proyecto_Negocios_IIP
         {
             try
             {
-                cn.Open();
+                con.Open();
                 string query = "UPDATE Est.Mostrar SET horaSalida=GETDATE() WHERE placaAutomovil =@placa";
-                SqlCommand comando = new SqlCommand(query, cn);
+                SqlCommand comando = new SqlCommand(query, con);
                 comando.Parameters.AddWithValue("@placa", Placa);
                 comando.ExecuteNonQuery();
-                cn.Close();
+                con.Close();
             }
             catch (Exception)
             {
@@ -161,12 +161,12 @@ namespace Proyecto_Negocios_IIP
             {
                 try
                 {
-                    cn.Open();
+                    con.Open();
                     string query = "DELETE FROM Est.Mostrar where placaAutomovil = @placa";
-                    SqlCommand comando = new SqlCommand(query, cn);
+                    SqlCommand comando = new SqlCommand(query, con);
                     comando.Parameters.AddWithValue("@placa", Placa);
                     comando.ExecuteNonQuery();
-                    cn.Close();
+                    con.Close();
                 }
                 catch (Exception)
                 {

@@ -10,6 +10,7 @@
 USE tempdb
 GO
 
+
 -- Crear la base de datos
 CREATE DATABASE Estacionamiento
 go	
@@ -26,15 +27,15 @@ GO
 CREATE SCHEMA Co
 GO
 
-
+DROP DATABASE ESTACIONAMIENTO
+GO
 
 -- Crear la tabla automovil
 CREATE TABLE Est.Automovil (
 	IdAutomovil INT IDENTITY(1,1) NOT NULL
 		CONSTRAINT PK_Id_Automovil PRIMARY KEY CLUSTERED,
 	Placa NVARCHAR (8) NOT NULL,
-    Tipo INT NOT NULL,
-	
+    Tipo INT NOT NULL
 )
 GO
 
@@ -94,7 +95,7 @@ ALTER TABLE Est.Automovil
 GO
 
 
-INSERT INTO Est.Automovil(Placa,Tipo)
+INSERT INTO Est.Automovil(Placa, Tipo)
 VALUES	('UPN3452', 1 ),
 		('PBT9834', 2 ),
 		('REN3432', 3),
@@ -103,9 +104,14 @@ VALUES	('UPN3452', 1 ),
 		('AJS1234', 6),
 		('ESE4565', 7),
 		('ESE4568', 8),
-		('ESE4545', 9)
-		
-		
+		('ESE4545', 1),
+		('GND5678', 2),
+	    ('HND1111', 3),
+		('JND2222', 4),
+		('JPG0933', 5),
+		('LND2344', 6),
+		('WER5555', 7),
+		('WGD6389', 8)
 Go
 
 
@@ -145,7 +151,7 @@ SELECT @TiempoTotal = TotalHoras FROM Est.Registro
 ---Creacion de trigger para llenar la tabla de reporte---
 
 INSERT INTO Est.Registro 
-VALUES(@Placa,@idAutomovil,  @Tipo, @HoraEntrada, @HoraSalida, DATEDIFF(hh, @HoraEntrada, @HoraSalida),0)
+VALUES(@Placa, @idAutomovil,  @Tipo, @HoraEntrada, @HoraSalida, DATEDIFF(hh, @HoraEntrada, @HoraSalida),0)
 -- Crear la tabla Registro
 
 
@@ -177,7 +183,8 @@ if(@Tipo) = 4 or (@Tipo) = 8 or (@Tipo) = 5 BEGIN
 end
 GO
 
-INSERT INTO Co.Monto VALUES (8,GETDATE(),GETDATE())
+INSERT INTO Co.Monto VALUES (5,GETDATE(),GETDATE())
+go
 
 select * FROM Est.Automovil
 GO

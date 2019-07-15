@@ -25,9 +25,12 @@ namespace Proyecto_Negocios_IIP
     /// </summary>
     public partial class MainWindow : Window
     {
+        ClaseEstacionamiento estacionamiento = new ClaseEstacionamiento();
+        SqlConnection con = new SqlConnection("Data Source = DESKTOP-JDLKDN3\\SQLEXPRESS; Initial Catalog = Estacionamiento; Integrate Security = True");
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void btnHoraEntrada_Click(object sender, RoutedEventArgs e)

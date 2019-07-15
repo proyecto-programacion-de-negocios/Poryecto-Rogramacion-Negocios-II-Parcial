@@ -63,11 +63,6 @@
     </ApplicationDefinition>
     <Compile Include="ClaseConexion.cs" />
     <Compile Include="ClaseEstacionamiento.cs" />
-    <Compile Include="EstacionamientoDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="HistorialdeEstacionamiento.xaml.cs">
       <DependentUpon>HistorialdeEstacionamiento.xaml</DependentUpon>
     </Compile>
@@ -127,17 +122,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="EstacionamientoDataSet.xsc">
-      <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="EstacionamientoDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EstacionamientoDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="EstacionamientoDataSet.xss">
-      <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
