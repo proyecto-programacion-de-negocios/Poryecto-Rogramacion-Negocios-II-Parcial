@@ -28,7 +28,7 @@
         <Button Name="btnAgregarAutomoviles" Content="Agregar Automoviles" Grid.Column="0" Grid.Row="2" Click="BtnAgregarAutomoviles_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
         <Button Name="btnActualizarlistaautomovil" Content="Actualizar Lista Automovil" Grid.Column="1" Grid.Row="2" Click="BtnActualizarlistaautomovil_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
         <Button Name="btnEliminarAUtomovilEstacionamiento" Content="Eliminar Automovil" Grid.Column="2" Grid.Row="2" Click="BtnEliminarAUtomovilEstacionamiento_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
-        <TextBox Name="txtInformacion" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" FontSize="18"/>
+        <TextBox Name="txtInformacion" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" FontSize="18" Background="White"/>
         <Button Name="btnVolver" Content="Volver Anterior" Grid.Column="3" Grid.Row="3" Click="BtnVolver_Click" BorderBrush="#A3E8A5" Background="#92E194" FontSize="18"/>
 
     </Grid>
