@@ -21,6 +21,6 @@
         </Grid.RowDefinitions>
         <Label Content="Listado de Automoviles En Estacionamiento" Grid.Column="0" Grid.Row="0"/>
         <ListBox Name="lbAutomoviles" Grid.Row="1" Margin="32,5,38,0"/>
-        <Button BorderThickness="4"  BorderBrush="#A3E8A5" Background="#92E194"  Content="Historial Automovil" Grid.Column="0" Grid.Row="3" Click="btnhistorialAutomovil_Click" FontSize="18" Margin="68,10,54,10" />
+        <Button BorderThickness="4"  BorderBrush="#A3E8A5" Background="#92E194"  Content="Historial Automovil" Grid.Column="0" Grid.Row="3" FontSize="18" Margin="68,10,54,10" />
     </Grid>
 </Window>

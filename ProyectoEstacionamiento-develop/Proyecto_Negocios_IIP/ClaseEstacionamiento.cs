@@ -15,7 +15,7 @@ namespace Proyecto_Negocios_IIP
         private string placa;
         private string tipoAutomovil;
         private decimal monto;
-        SqlConnection con = new SqlConnection("Data Source = DESKTOP-JDLKDN3\\SQLEXPRESS; Initial Catalog = Estacionamiento; Integrate Security = True");
+        SqlConnection con = new SqlConnection("Data Source = DESKTOP-JDLKDN3\\SQLEXPRESS; Initial Catalog = Estacionamiento; Integrated Security = True");
         public ClaseEstacionamiento()
         {
             placa = "AñadidaPorDefecto";
@@ -49,7 +49,7 @@ namespace Proyecto_Negocios_IIP
         {
             con.Open();
             string query = "SELECT COUNT(*) FROM Est.Automovil WHERE Placa=@placa";
-            SqlCommand comando = new SqlCommand(query, cn);
+            SqlCommand comando = new SqlCommand(query, con);
             comando.Parameters.AddWithValue("@placa", Placa);
 
             int cantidad = Convert.ToInt32(comando.ExecuteScalar());
@@ -70,7 +70,7 @@ namespace Proyecto_Negocios_IIP
         {
             con.Open();
             string query = "SELECT COUNT(*) FROM Est.Automovil WHERE Placa=@placa AND Tipo=@IdPlaca";
-            SqlCommand comando = new SqlCommand(query, cn);
+            SqlCommand comando = new SqlCommand(query, con);
             comando.Parameters.AddWithValue("@placa", Placa);
             comando.Parameters.AddWithValue("@IdPlaca", TipoAutomovil);
             int cantidad = Convert.ToInt32(comando.ExecuteScalar());

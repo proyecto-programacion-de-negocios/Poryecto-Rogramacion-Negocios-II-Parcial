@@ -41,8 +41,24 @@
             </Grid.RowDefinitions>
             <Label FontWeight="Black" Content="Opciones" Grid.Column="0" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" />
             <Label FontWeight="Black" Content="Listado de Automoviles" Grid.Column="1" Grid.Row="0" FontSize="20" HorizontalAlignment="Center"/>
-            <ListBox Name="lbAutomoviles" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Margin="32,5,38,-5"/>
-
+            <ListBox Name="lbAutomoviles" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Margin="32,5,38,-5" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Placa}"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding TipoAuomovil}"></TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding HoraEntrada}"></TextBlock>
+                            <TextBlock Grid.Column="3" Text="{Binding HoraSalida}"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
             <Button BorderThickness="4"  BorderBrush="#A3E8A5" Background="#92E194"  Content="Hora de entrada automóvil" Grid.Column="0" Grid.Row="1" Click="btnHoraEntrada_Click" FontSize="18" Margin="68,10,54,10" />
             <Button BorderThickness="4" BorderBrush="#A3E8A5" Background="#92E194" Content="Hora De Salida Automóvil" Grid.Column="0" Grid.Row="2" Click="btnHoraSalida_Click" FontSize="18" Margin="68,10,54,10"/>
