@@ -14,7 +14,7 @@ namespace Proyecto_Negocios_IIP
         private DateTime horaEntrada;
         private string placa;
         private string tipoAutomovil;
-        private decimal costo;
+        private decimal monto;
         SqlConnection cn = new SqlConnection("Data Source = EstacionamientoConnectionString; Initial Catalog = Proyecto_Negocios_IIP; Integrated Security = True");
         public ClaseEstacionamiento()
         {

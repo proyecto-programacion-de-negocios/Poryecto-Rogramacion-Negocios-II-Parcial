@@ -9,6 +9,6 @@ namespace Proyecto_Negocios_IIP
     //EstacionamientoConnectionString
     class ClaseConexion
     {
-        public static string Cn = @"server = (local)\SQLEXPRESS; Initial Catalog = EstacionamientoConnectionString; Integrated Security = True;";
+        public static string Cn = @"Data Source=DESKTOP-JDLKDN3\SQLEXPRESS;Initial Catalog=Estacionamiento;Integrated Security=True";
     }
 }

@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -62,12 +68,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HistorialdeEstacionamiento.xaml.cs">
+      <DependentUpon>HistorialdeEstacionamiento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistroEntrada.xaml.cs">
       <DependentUpon>RegistroEntrada.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistroSalida.xaml.cs">
       <DependentUpon>RegistroSalida.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TipoDeAutomovil.xaml.cs">
+      <DependentUpon>TipoDeAutomovil.xaml</DependentUpon>
+    </Compile>
+    <Page Include="HistorialdeEstacionamiento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegistroSalida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TipoDeAutomovil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,6 +138,7 @@
     <None Include="EstacionamientoDataSet.xss">
       <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
